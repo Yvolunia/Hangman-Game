@@ -37,7 +37,7 @@ h1 {
 
 .letters {
   height: 200px;
-  text-align: center;
+  text-align: left;
   padding: 25px;
   background-color: black;
   color: white;

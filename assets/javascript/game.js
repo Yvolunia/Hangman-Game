@@ -1,15 +1,35 @@
-// When the facButton is clicked...
+
+
 $("#factButton").on("click", function() {
-	// We generate a random number
-	var number = Math.floor((Math.random() * computerChoices.length));
-	// We display the fact from the booFactArray that is in the random position we just generated
-	$("#factText").text(computerChoices[number])
+  var number = Math.floor(Math.random() * computerChoices.length);
+  $("#factText").text(computerChoices[number])
+
 })
 
-// Vocab Array
 var computerChoices = ["clairvoyant", "aesthetic", "amicable", "asylum", "benevolent", "camaraderie",
 "circuitous", "demagogue", "empathy", "ephemeral", "fortuitous", "hackneyed"; "hypothesis", "impetuous",
 "integrity", "nonochalant", "opulent", "ostentatious", "procrastinate", "querulous", "resilient", "spontaneity",
 "sagacity"]
 
+while (remainingLetters > 0) {
 
+  // Game code goes here
+
+  // Show the player their progress
+
+  // Take input from the player
+
+  // Update answerArray and remainingLetters for every correct guess
+
+}
+
+
+var answerArray = [];
+
+for (var i = 0; i < word.length; i++) {
+
+    answerArray[i] = "_";
+
+  }
+
+  var remainingLetters = word.length;
