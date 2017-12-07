@@ -85,7 +85,8 @@
 
    <div class="col-sm-4">
      <div class="score">
-     <p id="chances">Chances</p>
+      <p>Display variable information</p>
+     <p id="chances">Chances:</p>
      <p id="wins">Wins:</p>
      <p id="losses">Losses:</p>
     </div>
@@ -98,14 +99,14 @@
   <div class="row">
     <div class="col-sm-6">
       <div class="sue">
-     <h1>Sue Response</h1>
+     <p>If wins++, show Sue happy comment / Else show Sue unhappy comment</p>
    </div>
  </div>
 
 
    <div class="col-sm-6">
     <div class="def">
-      <div id="answers">Answers</div>
+      <div id="answers">Create object: "benevolent" : "kind" / Show definition for word displayed.</div>
 
 
       </div>
@@ -128,7 +129,6 @@
 
   $("#factButton").on("click", function() {
   var number = Math.floor(Math.random() * computerChoices.length);
-
   $("#factText").text('*'.repeat(computerChoices[number].length))
 
     })
@@ -161,8 +161,6 @@
   
 
   </script>
-      }
-      }
 
 
 </html>
