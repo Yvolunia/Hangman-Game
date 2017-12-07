@@ -62,21 +62,7 @@
 
 </div>
 
-<h1 class="text-center" id="factText">Are you ready?</h1>
-
-  <script type="text/javascript">
-
-  $("#factButton").on("click", function() {
-  var number = Math.floor(Math.random() * computerChoices.length);
-  $("#factText").text(computerChoices[number])
-
-  })
-
-var computerChoices = ["sagacity", "resilient", "amicable", "querulous", "benevolent", "hypothesis", "impetuous", "aesthetic", "demagogue", "empathy"]
-
-
-</script>
-
+<h1 class="text-center" id="factText"></h1>
 
     </div>
   </div>
@@ -92,13 +78,15 @@ var computerChoices = ["sagacity", "resilient", "amicable", "querulous", "benevo
 
    <div class="col-sm-4">
     <div class="letters">
-     <h3>Letters Already Guessed</h3>
+     <p id="lettersguess">Choose a letter!</p>
     </div>
    </div>
 
    <div class="col-sm-4">
      <div class="score">
-     <h1>Wins and Losses</h1>
+     <p id="chances">Chances:</p>
+     <p id="wins">Wins:</p>
+     <p id="losses">Losses:</p>
     </div>
   </div>
 </div>
@@ -124,11 +112,27 @@ var computerChoices = ["sagacity", "resilient", "amicable", "querulous", "benevo
 </body>
 
  <!-- jQuery CDN -->
-
-  </script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+ 
+<!--JS Random Word -->
+  <script type="text/javascript">
+
+      // JavaScript function that wraps everything
+
+  $("#factButton").on("click", function() {
+  var number = Math.floor(Math.random() * computerChoices.length);
+  $("#factText").text('*'.repeat(computerChoices[number].length))
+
+    })
+
+  var computerChoices = ["sagacity", "resilient", "amicable", "querulous", "benevolent", "hypothesis", "impetuous", "aesthetic", "demagogue", "empathy"]
+
+  var chances = 10;
+  var userGuess = event.key;
+
+  </script>
 
 
 </html>

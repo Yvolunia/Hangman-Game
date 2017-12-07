@@ -16,6 +16,10 @@ body {
   color: white;
   }
 
+#id {
+
+  letter-spacing: 3px
+}
 
 .col-sm-8 {
   height: 200px;
@@ -35,13 +39,27 @@ h1 {
   margin-right: 25px;
 }
 
-.letters {
+.alphabet {
   height: 200px;
   text-align: left;
   padding: 25px;
   background-color: black;
   color: white;
   border: 3px solid #ff00ff;
+}
+
+ .letter {
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    padding: 2px;
+    float: left;
+    margin: 2px;
+    color: black;
+  }
+
+  .letter-button-color {
+    color: darkcyan;
 }
 
 .score {
@@ -53,6 +71,14 @@ h1 {
   margin-right: 25px;
   border: 3px solid #ff00ff;
   color: white;
+}
+
+#chances, #wins, #losses, #lettersguess {
+  text-align: left;
+}
+
+#buttons {
+  padding-top: 20px;
 }
 
 .sue {

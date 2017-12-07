@@ -1,18 +1,17 @@
 
 <!DOCTYPE html>
 <html lang="en-us">
-
 <head>
-
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
-
  <title>Hangwoman</title>
+ <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Added a link to Bootstrap-->
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
- 
+ <!-- Added a link to Stylesheets-->
 <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-
 </head>
 
 <body>
@@ -23,15 +22,7 @@
           <div class="row">
             <div class="col-sm-8 py-4">
               <h4 class="text-white">About</h4>
-              <p class="text-muted">Press r, p or s to start playing!</p>
-            </div>
-            <div class="col-sm-4 py-4">
-              <h4 class="text-white">Contact</h4>
-              <ul class="list-unstyled">
-                <li><a href="#" class="text-white">Follow on Twitter</a></li>
-                <li><a href="#" class="text-white">Like on Facebook</a></li>
-                <li><a href="#" class="text-white">Email me</a></li>
-              </ul>
+              <p class="text-white">Type in a letter to solve the puzzle. You only have six guesses.</p>
             </div>
           </div>
         </div>
@@ -45,85 +36,133 @@
         </div>
       </div>
     </header>
+ 
+ <!-- Header Row -->
 
-    <main role="main">
+ <div class="row">
+  <div class="col-sm-12">
+    <div id="title">
+    <h1>SAT Hangwoman</h1>
+    </div>
+  </div>
+</div>
+    
+<!-- Game Row -->  
 
-      <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading">SAT Hangwoman</h1>
-          <div class="lead text-muted"> <img src="./assets/images/TestWoman-2.png" alt="IntroSue"></div>
-          <p>
-            <a href="#" class="btn btn-primary">Commence</a>
-          </p>
-        </div>
-      </section>
+<div class="row">
+  <div class="col-sm-2">
+  </div>
+  <div class="col-sm-8">
 
-      <div class="album text-muted">
-        <div class="container">
+<div class="text-center">
 
-          <div class="row">
-            <div class="card">
-              <img width=100 height=200 src="./assets/images/TestWoman-2.png" alt="IntroSue">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card">
-              <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card">
-              <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
+<!-- Button Function -->  
 
-            <div class="card">
-              <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card">
-              <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card">
-              <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
+<button id="factButton" type="button" class="btn btn-secondary btn-lg btn-block">Play</button>
 
-            <div class="card">
-              <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card">
-              <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card">
-              <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
+</div>
 
-        </div>
+<h1 class="text-center" id="factText"></h1>
+
+    </div>
+  </div>
+</div>
+ 
+<!-- Stats Row -->
+  <div class="row">
+      <div class="col-sm-4">
+        <div class="hangwoman_card">
+         <img width=330 height=200 src="./assets/images/TestWoman-2.png" alt="IntroSue">
+    </div>
+  </div>
+
+   <div class="col-sm-4">
+    <div class="alphabet">
+     <p id="lettersguess">Choose a letter!</p>
+      <div id="buttons"></div>
+    </div>
+   </div>
+
+   <div class="col-sm-4">
+     <div class="score">
+     <p id="chances">Chances</p>
+     <p id="wins">Wins:</p>
+     <p id="losses">Losses:</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- Response Row -->
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="sue">
+     <h1>Sue Response</h1>
+   </div>
+ </div>
+
+
+   <div class="col-sm-6">
+    <div class="def">
+      <p id="answers">Answers</p>
       </div>
-
-    </main>
-
-    <footer class="text-muted">
-      <div class="container">
-        <p class="float-right">
-          <a href="#">Back to top</a>
-        </p>
-        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-        <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
-      </div>
-    </footer>
-
+    </div>
+</div> <!-- end response .row -->
+      
 </body>
 
  <!-- jQuery CDN -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+ 
+<!--JS Random Word -->
+  <script type="text/javascript">
+
+      // JavaScript function that wraps everything
+
+  var computerChoices = ["sagacity", "resilient", "amicable", "querulous", "benevolent", "hypothesis", "impetuous", "aesthetic", "demagogue", "empathy"]  
+
+  $("#factButton").on("click", function() {
+  var number = Math.floor(Math.random() * computerChoices.length);
+
+  $("#factText").text('*'.repeat(computerChoices[number].length))
+
+    })
+
+     // Letter Buttons
+
+ var alphabet = 'abcdefghijklmnopqrtsuvwxyz'
+ div_used = document.getElementById('used');
+ div_puzzle = document.getElementById('puzzle');
+ div_available = docuement.getElementById('available');
+
+ for(var i=0;; i<alphabet.length; i++){
+     var l = document.createElement('div');
+     l.className = 'btnLetter';
+     div_available.appendChild(l);
+
+   }
+
+  }
+
+}
+      
+        
+  // Score Information
+
+  var vchances = 6;
+  var vwins = 0;
+  var vlosses = 0;
+  var userGuesses =[];
+  
+
+  </script>
+      }
+      }
 
 
 </html>
+
 
