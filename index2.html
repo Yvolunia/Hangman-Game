@@ -78,7 +78,7 @@
 
    <div class="col-sm-4">
     <div class="alphabet">
-     <p id="lettersguess">Choose a letter!</p>
+     <p id="lettersguess">Letters Guessed:</p>
       <div id="buttons"></div>
     </div>
    </div>
@@ -86,9 +86,9 @@
    <div class="col-sm-4">
      <div class="score">
       <p>Display variable information</p>
-     <p id="chances">Chances:</p>
-     <p id="wins">Wins:</p>
-     <p id="losses">Losses:</p>
+     <p id="chances"></p>
+     <p id="wins"></p>
+     <p id="losses"></p>
     </div>
   </div>
 </div>
@@ -127,29 +127,18 @@
 
   var computerChoices = ["sagacity", "resilient", "amicable", "querulous", "benevolent", "hypothesis", "impetuous", "aesthetic", "demagogue", "empathy"]  
 
+
   $("#factButton").on("click", function() {
   var number = Math.floor(Math.random() * computerChoices.length);
-
-  $("#factText").text(computerChoices[number])
+  $("#factText").text('*'.repeat(computerChoices[number].length))
 
     })
 
-     // Letter Buttons
+  // Letters Guessed
 
-     var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-      for (var i = 0; i < letters.length; i++) {
-       
-        var letterBtn = $("<button>");
-
-        letterBtn.addClass("letter-button letter letter-button-color");
-
-        letterBtn.data("data-letter", letters[i]);
-
-        letterBtn.text(letters[i]);
-
-        $("#buttons").append(letterBtn);
-
+    document.onkeyup = function(event){
+    var lettersGuess = document.getElementById("lettersguess");
+        lettersGuess.innerHTML+=" "+event.key;
       }
   
 
@@ -159,11 +148,14 @@
   var vwins = 0;
   var vlosses = 0;
   var userGuesses =[];
+
+  $("#chances").text("Chances:  " + vchances);
   
+  $("#wins").text("Wins:  " + vwins);
+
+  $("#losses").text("Losses:  " + vlosses);
 
   </script>
-      }
-      }
 
 
 </html>
