@@ -127,20 +127,44 @@
 
   var computerChoices = ["sagacity", "resilient", "amicable", "querulous", "benevolent", "hypothesis", "impetuous", "aesthetic", "demagogue", "empathy"]  
 
-
-  $("#factButton").on("click", function() {
-  var number = Math.floor(Math.random() * computerChoices.length);
-  $("#factText").text('*'.repeat(computerChoices[number].length))
-
-    })
+var string word = words(int) (Math.random()*computerChoices.length)];
+var string asterisk = new String(new char[computerChoices.lenghth().replace("\0", "*");
+count=0;
+String newasterisk="";
 
   // Letters Guessed
 
     document.onkeyup = function(event){
     var lettersGuess = document.getElementById("lettersguess");
         lettersGuess.innerHTML+=" "+event.key;
+        var letter = event.key;
+
+    for(int i=0; < computerChoices.length(); i++) {
+      if(computerChoices.charAt(i)==letter.charAt(0)) {
+      newsasterisk+=letter.charAt(0)
+      }
+    }
+
+    // do something with letter
+
       }
   
+  // definitions
+
+   var synonym {
+    "sagacity": "wisdom",
+    "resilient": "tough",
+    "amicable": "friendly",
+    "querulous": "argumentative"
+    "benevolent": "kind"
+    "hypothesis": "educated guess"
+    "impetuous"="spontaneous"
+    "aesthetic"="visual appeal"
+    "demagogue"
+    "empahy"="sympathy"
+
+
+   }
 
   // Score Information
 
