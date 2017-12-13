@@ -126,28 +126,68 @@
       // JavaScript function that wraps everything
 
   var computerChoices = ["sagacity", "resilient", "amicable", "querulous", "benevolent", "hypothesis", "impetuous", "aesthetic", "demagogue", "empathy"]  
+  
 
+  var guessedLetters = "";
 
-  $("#factButton").on("click", function() {
+$("#factButton").on("click", function() {
+  var hiddenWord = "";
+  console.log("click");
   var number = Math.floor(Math.random() * computerChoices.length);
-  $("#factText").text('*'.repeat(computerChoices[number].length))
+  var word = computerChoices[number];
+  console.log(word);
+  for(var i=0; i < word.length; i++) {
+    hiddenWord+="*";
+  }
+  $("#factText").text(hiddenWord);
 
-    })
+
 
   // Letters Guessed
 
+
     document.onkeyup = function(event){
     var lettersGuess = document.getElementById("lettersguess");
-        lettersGuess.innerHTML+=" "+event.key;
-      }
-  
+    var userLetter = (event.key).toLowerCase();
+
+        if(guessedLetters.indexOf(userLetter) === -1) {
+          guessedLetters += userLetter + " ";
+
+          if(word.indexOf(userLetter) > -1) {
+            var newHiddenWord = "";
+
+        for(var i=0; i < word.length; i++) {
+        if(word.charAt(i)===userLetter) {
+          newHiddenWord += userLetter;
+        }
+        else {
+          newHiddenWord += hiddenWord.charAt(i);
+        }
+
+        
+        } // Closes the for
+
+        hiddenWord = newHiddenWord;
+
+      } // Closes word check
+
+
+    }   // Unique Letter Test
+
+ $("#factText").text(hiddenWord);
+
+lettersGuess.innerHTML = "Letter Guess:" + " " + guessedLetters;
+
+  } // Closed onkeyup
+
+})
 
   // Score Information
 
   var vchances = 6;
   var vwins = 0;
   var vlosses = 0;
-  var userGuesses =[];
+
 
   $("#chances").text("Chances:  " + vchances);
   
